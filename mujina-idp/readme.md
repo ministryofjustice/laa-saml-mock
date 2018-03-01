@@ -23,10 +23,23 @@ docker build . -t laa-saml-mock-idp
 docker container run -p 8080:8080 laa-saml-mock-idp
 ```
 
-# Run the mock IdP docker container specifying a custom host
-You can use the SERVICE_HOST environment variable to run the mock IdP somewhere other than localhost
+# Run the mock IdP docker container on a custom host
+You can use the DOCKER_IDP_SERVICE_HOST environment variable to run the mock IdP somewhere other than localhost
 ```bash
-docker container run -p 8080:8080 -e SERVICE_HOST=10.98.221.157 laa-saml-mock-idp
+docker container run -p 8080:8080 -e DOCKER_IDP_SERVICE_HOST=10.98.221.157 laa-saml-mock-idp
+```
+
+# Run the mock IdP docker container on a custom port
+You can use the DOCKER_IDP_SERVICE_PORT environment variable to expose the mock IdP from the docker host on a different port than 8080
+```bash
+docker container run -p 8000:8080 -e DOCKER_IDP_SERVICE_PORT=8000 laa-saml-mock-idp
+```
+_the docker host port must match the IDP_SERVICE_PORT port_ e.g. 8000
+
+# Run the mock IdP docker container on a custom host and port
+Use a combination of the DOCKER_IDP_SERVICE_HOST and DOCKER_IDP_SERVICE_PORT environment variables
+```bash
+docker container run -p 8000:8080 -e DOCKER_IDP_SERVICE_HOST=10.98.221.157 -e DOCKER_IDP_SERVICE_PORT=8000 laa-saml-mock-idp
 ```
 
 # Specify an override spring configuration file
@@ -38,5 +51,5 @@ The contents of the file must have the __idp.base_url__ property set to the foll
 SAML IdP application to work correctly
 ```yml
 idp:
-  base_url: http://${SERVICE_HOST}:8080
+  base_url: http://${IDP_SERVICE_HOST}:${IDP_SERVICE_PORT}
 ```
