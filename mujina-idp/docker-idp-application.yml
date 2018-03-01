@@ -1,5 +1,5 @@
 idp:
-  base_url: http://${SERVICE_HOST}:8080
+  base_url: http://${IDP_SERVICE_HOST}:${IDP_SERVICE_PORT}
 
 samlUserStore:
   samlUsers:
