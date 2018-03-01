@@ -117,7 +117,7 @@ vim /home/ec2-user/laa-saml-mock/mujina-idp/laa-saml-mock-idp-application.yml
 ```
 ```
 idp:
-  base_url: http://${SERVICE_HOST}:8080
+  base_url: http://${IDP_SERVICE_HOST}:${IDP_SERVICE_PORT}
 
 samlUserStore:
   samlUsers:
@@ -131,9 +131,10 @@ samlUserStore:
 ##### Start IdP app
 ```
 #!/bin/bash
-export SERVICE_HOST=`curl http://169.254.169.254/latest/meta-data/public-ipv4`;
+export IDP_SERVICE_HOST=`curl http://169.254.169.254/latest/meta-data/public-ipv4`;
+export IDP_SERVICE_PORT=8000;
 
-cd /home/ec2-user/laa-saml-mock/mujina-idp/target; sudo -u ec2-user nohup java -DSERVICE_HOST=${SERVICE_HOST} -jar laa-saml-mock-idp-1.0.0.jar --spring.config.location=/home/ec2-user/laa-saml-mock/mujina-idp/laa-saml-mock-idp-application.yml &
+cd /home/ec2-user/laa-saml-mock/mujina-idp/target; sudo -u ec2-user nohup java -DIDP_SERVICE_HOST=${IDP_SERVICE_HOST} -DIDP_SERVICE_PORT=${IDP_SERVICE_PORT} -jar laa-saml-mock-idp-1.0.0.jar --spring.config.location=/home/ec2-user/laa-saml-mock/mujina-idp/laa-saml-mock-idp-application.yml &
 ```
 
 ##### Tail the log file
@@ -148,19 +149,21 @@ vim /home/ec2-user/laa-saml-mock/mujina-sp/laa-saml-mock-sp-application.yml
 ```
 ```
 sp:
-  base_url: http://${SERVICE_HOST}:9090
+  base_url: http://${SP_SERVICE_HOST}:9090
   entity_id: http://mock-sp
-  idp_metadata_url: http://${SERVICE_HOST}:8080/metadata
-  single_sign_on_service_location: http://${SERVICE_HOST}:8080/SingleSignOnService
+  idp_metadata_url: http://${IDP_SERVICE_HOST}:${IDP_SERVICE_PORT}/metadata
+  single_sign_on_service_location: http://${IDP_SERVICE_HOST}:${IDP_SERVICE_PORT}/SingleSignOnService
   acs_location_path: /saml/SSO
 ```
 
 ##### Start SP app
 ```
 #!/bin/bash
-export SERVICE_HOST=`curl http://169.254.169.254/latest/meta-data/public-ipv4`;
+export IDP_SERVICE_HOST=`curl http://169.254.169.254/latest/meta-data/public-ipv4`;
+export IDP_SERVICE_PORT=8000;
+export SP_SERVICE_HOST=`curl http://169.254.169.254/latest/meta-data/public-ipv4`;
 
-cd /home/ec2-user/laa-saml-mock/mujina-sp/target; sudo -u ec2-user nohup java -DSERVICE_HOST=${SERVICE_HOST} -jar laa-saml-mock-sp-1.0.0.jar --spring.config.location=/home/ec2-user/laa-saml-mock/mujina-sp/laa-saml-mock-sp-application.yml &
+cd /home/ec2-user/laa-saml-mock/mujina-sp/target; sudo -u ec2-user nohup java -DIDP_SERVICE_HOST=${IDP_SERVICE_HOST} -DIDP_SERVICE_PORT=${IDP_SERVICE_PORT} -DSP_SERVICE_HOST=${SP_SERVICE_HOST} -jar laa-saml-mock-sp-1.0.0.jar --spring.config.location=/home/ec2-user/laa-saml-mock/mujina-sp/laa-saml-mock-sp-application.yml &
 ```
 
 ##### Tail the log file
