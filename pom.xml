@@ -25,16 +25,17 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
-    <spring-boot.version>1.5.2.RELEASE</spring-boot.version>
     <spring-security-oauth2.version>2.1.0.RELEASE</spring-security-oauth2.version>
     <httpclient.version>4.5.3</httpclient.version>
     <spring-security-saml2-core.version>1.0.2.RELEASE</spring-security-saml2-core.version>
+    <jackson.version>2.9.4</jackson.version>
+    <xalan.version>2.7.2</xalan.version>
   </properties>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.2.RELEASE</version>
+    <version>1.5.9.RELEASE</version>
     <relativePath />
   </parent>
 
