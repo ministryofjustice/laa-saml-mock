@@ -12,6 +12,10 @@ server:
     timeout: 28800
     cookie:
       secure: false
+  #SSL info forwarding
+  tomcat:
+    remote_ip_header: x-forwarded-for
+    protocol_header: x-forwarded-proto
 
 # Identity Provider
 idp:
