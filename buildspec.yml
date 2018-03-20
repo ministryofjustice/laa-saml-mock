@@ -11,6 +11,9 @@ phases:
       - add-apt-repository ppa:openjdk-r/ppa
       - apt-get update -y
       - apt-get install -y openjdk-8-jdk
+      - apt-get install --reinstall ca-certificates-java
+      - echo date
+      - ls /etc/ssl/certs/java/cacerts
       - echo Installing maven...
       - wget http://apache.mirror.anlx.net/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
       - tar -zxvf apache-maven-3.5.2-bin.tar.gz
