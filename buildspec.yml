@@ -29,7 +29,7 @@ phases:
       - REPOSITORY_URI=$ACCOUNT.dkr.ecr.eu-west-2.amazonaws.com/$DOCKER_TAG
       - echo Created docker target $REPOSITORY_URI
       - echo Starting maven build on `date`...
-      - mvn install
+      - mvn install -e
       - echo Building the Docker image...
       - docker build mujina-idp/ -t $DOCKER_TAG
       - docker tag $DOCKER_TAG $REPOSITORY_URI
