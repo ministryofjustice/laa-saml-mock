@@ -14,6 +14,7 @@ phases:
       - apt-get install --reinstall ca-certificates-java
       - ls /etc/ssl/certs/java/cacerts
       - ls /usr/lib/jvm/
+      - rm /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/security/cacerts
       - ln -s /etc/ssl/certs/java/cacerts /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/security/cacerts
       - echo Installing maven...
       - wget http://apache.mirror.anlx.net/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
