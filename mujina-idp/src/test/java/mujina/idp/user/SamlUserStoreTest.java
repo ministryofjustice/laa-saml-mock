@@ -25,7 +25,7 @@ public class SamlUserStoreTest {
   }
 
   @Test
-  public void shouldGetAttributeForDefaultUsers() {
+  public void shouldNotGetAttributeForDefaultUsers() {
     // given
     sut = new SamlUserStore();
 
@@ -34,13 +34,11 @@ public class SamlUserStoreTest {
     Map<String, String> userAttributes = sut.getUserAttributes("user");
 
     // then
-    assertThat(adminAttributes.size(), is(1));
-    assertThat(adminAttributes.containsKey("attribute 1"), is(true));
-    assertThat(adminAttributes.get("attribute 1"), is("admin attribute 1"));
+    assertThat(adminAttributes.size(), is(0));
+    assertThat(adminAttributes.containsKey("attribute 1"), is(false));
 
-    assertThat(userAttributes.size(), is(1));
-    assertThat(userAttributes.containsKey("attribute 1"), is(true));
-    assertThat(userAttributes.get("attribute 1"), is("user attribute 1"));
+    assertThat(userAttributes.size(), is(0));
+    assertThat(userAttributes.containsKey("attribute 1"), is(false));
   }
 
   @Test

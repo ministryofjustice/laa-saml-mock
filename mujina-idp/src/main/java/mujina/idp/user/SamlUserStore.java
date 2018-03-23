@@ -26,13 +26,7 @@ public class SamlUserStore {
   }
 
   public Map<String, String> getUserAttributes(String username) {
-    switch (username) {
-      case "admin":
-      case "user":
-        return singletonMap("attribute 1", String.format("%s attribute 1", username));
-      default:
-        return getSamlUserAttributes(username);
-    }
+    return getSamlUserAttributes(username);
   }
 
   private Map<String, String> getSamlUserAttributes(String username) {

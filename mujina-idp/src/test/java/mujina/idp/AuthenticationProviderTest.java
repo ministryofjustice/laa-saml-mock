@@ -39,7 +39,7 @@ public class AuthenticationProviderTest extends AbstractIntegrationTest {
   @Test
   public void authenticateWrongPassword() throws Exception {
     given()
-      .formParam("username", "admin")
+      .formParam("username", "testuser")
       .formParam("password", "nope")
       .post("/login")
       .then()

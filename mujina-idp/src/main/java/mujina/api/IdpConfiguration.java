@@ -104,8 +104,6 @@ public class IdpConfiguration extends SharedConfiguration {
 
   private void resetUsers() {
     users.clear();
-    users.add(createUser("admin", "secret", ADMIN_ROLES));
-    users.add(createUser("user", "secret", USER_ROLES));
     addSamlUsers();
   }
 
