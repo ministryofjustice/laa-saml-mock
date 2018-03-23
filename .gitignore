@@ -7,3 +7,4 @@ target/
 .project
 .settings
 application.t03.yml
+.DS_Store
