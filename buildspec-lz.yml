@@ -1,4 +1,7 @@
 version: 0.2
+env:
+  variables:
+    MAVEN_VERSION: "3.5.3"
 phases:
   install:
     commands:
@@ -9,10 +12,10 @@ phases:
       - apt-get install -y openjdk-8-jdk
       - update-ca-certificates -f
       - echo Installing maven...
-      - wget http://apache.mirror.anlx.net/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
-      - tar -zxvf apache-maven-3.5.2-bin.tar.gz
+      - wget http://apache.mirror.anlx.net/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
+      - tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz
       - echo $PWD
-      - MAVEN_HOME=$PWD/apache-maven-3.5.2
+      - MAVEN_HOME=$PWD/apache-maven-$MAVEN_VERSION
       - echo Maven home set to $MAVEN_HOME
       - PATH=$PATH:$MAVEN_HOME/bin
   pre_build:
