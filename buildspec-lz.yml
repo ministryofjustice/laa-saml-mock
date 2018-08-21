@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-    MAVEN_VERSION: "3.5.3"
+    MAVEN_VERSION: "3.5.4"
 phases:
   install:
     commands:
