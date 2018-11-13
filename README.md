@@ -1,6 +1,16 @@
-## LAA customisation of the Mujina project
+# LAA Mock SAML IDP
 
-[![Build Status](https://codebuild.eu-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoieEx5dk9UQUVuUHNHUGl2bDBiMGZNNGRpZHAySE42dUpjNHFrV3BGNkQ4clhxVVNVOHVYTzFIZWo1VXpvakFQSjVHRTdnRnJNTXI4YUJPTXRZTHNBUCt3PSIsIml2UGFyYW1ldGVyU3BlYyI6IkY0eVNYZWE3a29MZTMra0oiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)](https://codebuild.eu-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoieEx5dk9UQUVuUHNHUGl2bDBiMGZNNGRpZHAySE42dUpjNHFrV3BGNkQ4clhxVVNVOHVYTzFIZWo1VXpvakFQSjVHRTdnRnJNTXI4YUJPTXRZTHNBUCt3PSIsIml2UGFyYW1ldGVyU3BlYyI6IkY0eVNYZWE3a29MZTMra0oiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+[![Build Status](https://travis-ci.org/ministryofjustice/laa-saml-mock.svg?branch=master)](https://travis-ci.org/ministryofjustice/laa-saml-mock)
+
+
+The purpose of the LAA Mock SAML IDP (Identity Provider) is to provide a mock of the LAA Portal, although it can be used for any project requiring a mock IDP or SP (Service Provider).
+
+The mock IDP can be run locally or with Docker. Typical use cases would be:
+* Local development to simulate a Portal when integrating a new SAML SP application.
+* Run as part of a deployment pipeline in Docker to allow system tests to log into the SP application without the need for a Portal instance.
+* Hosted to allow users to log into an SP application where there is no Portal instance.
+
+## LAA customisation of the Mujina project
 
 #### Useful sections in this document
 * [Mujina API Calls](#mujina-api-calls)
@@ -20,6 +30,8 @@
 ---
 
 ### Mujina API Calls
+
+The original Mujina project allows you to change the configuration of the IDP with IDP calls, this functionality is not used by the Portal team but can be enabled as detailed below.
 
 #### Disable the api
 All api calls can be disabled by overriding the following property in
@@ -44,7 +56,6 @@ idp:
 ---
 
 ##### The original project can be found @ https://github.com/OpenConext/Mujina
-
 ---
 
 ### Local development of the mock IdP/SP
