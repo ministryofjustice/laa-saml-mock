@@ -29,8 +29,8 @@
     <httpclient.version>4.5.3</httpclient.version>
     <spring-security-saml2-core.version>1.0.2.RELEASE</spring-security-saml2-core.version>
     <spring.version>4.3.16.RELEASE</spring.version>
-    <jackson.version>2.9.4</jackson.version>
     <xalan.version>2.7.2</xalan.version>
+    <jackson.version>2.10.2</jackson.version>
   </properties>
 
   <parent>
