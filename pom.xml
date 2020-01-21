@@ -30,6 +30,7 @@
     <spring-security-saml2-core.version>1.0.2.RELEASE</spring-security-saml2-core.version>
     <spring.version>4.3.16.RELEASE</spring.version>
     <jackson.version>2.10.2</jackson.version>
+    <openws.version>1.5.4</openws.version>
   </properties>
 
   <parent>
@@ -116,7 +117,7 @@
         <version>5.3.0</version>
         <configuration>
           <failBuildOnCVSS>8</failBuildOnCVSS>
-          <suppressionFile>${project.basedir}/../owasp-suppressions.xml</suppressionFile>
+          <suppressionFile>owasp-suppressions.xml</suppressionFile>
         </configuration>
         <executions>
           <execution>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+   <suppress>
+      <notes><![CDATA[
+      Suppresses CVE-2018-1258, detected as a false positive with the current version of the package below (1.51).
+      The problem does not impact versions of this implementation for the algorithm prior to version 1.57.
+      Quoting https://access.redhat.com/security/cve/cve-2018-1000613:
+      "The XMSS/XMSS^MT algorithms were first introduced in upstream bouncycastle version 1.57.
+      Versions prior to this, that have not had the new algorithms back-ported, are not affected."
+      ]]></notes>
+      <packageUrl>pkg:maven/org.bouncycastle/bcprov-jdk15on@1.51</packageUrl>
+      <cpe>cpe/:a:bouncycastle:legion-of-the-bouncy-castle-java-crytography-api</cpe>
+      <cve>CVE-2018-1000613</cve>
+   </suppress>
+</suppressions>
