@@ -25,7 +25,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
-    <spring-security-oauth2.version>2.1.0.RELEASE</spring-security-oauth2.version>
     <httpclient.version>4.5.3</httpclient.version>
     <spring-security-saml2-core.version>1.0.2.RELEASE</spring-security-saml2-core.version>
     <spring.version>4.3.16.RELEASE</spring.version>
