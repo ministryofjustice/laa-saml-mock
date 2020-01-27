@@ -25,11 +25,12 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
-    <spring-security-oauth2.version>2.1.0.RELEASE</spring-security-oauth2.version>
     <httpclient.version>4.5.3</httpclient.version>
     <spring-security-saml2-core.version>1.0.2.RELEASE</spring-security-saml2-core.version>
-    <jackson.version>2.9.4</jackson.version>
-    <xalan.version>2.7.2</xalan.version>
+    <spring.version>4.3.16.RELEASE</spring.version>
+    <jackson.version>2.10.2</jackson.version>
+    <openws.version>1.5.4</openws.version>
+    <tomcat.version>8.5.50</tomcat.version>
   </properties>
 
   <parent>
@@ -113,9 +114,10 @@
       <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
-        <version>3.1.1</version>
+        <version>5.3.0</version>
         <configuration>
           <failBuildOnCVSS>8</failBuildOnCVSS>
+          <suppressionFile>owasp-suppressions.xml</suppressionFile>
         </configuration>
         <executions>
           <execution>
