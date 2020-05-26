@@ -30,7 +30,7 @@
     <spring.version>4.3.16.RELEASE</spring.version>
     <jackson.version>2.10.2</jackson.version>
     <openws.version>1.5.4</openws.version>
-    <tomcat.version>8.5.51</tomcat.version>
+    <tomcat.version>8.5.55</tomcat.version>
   </properties>
 
   <parent>
