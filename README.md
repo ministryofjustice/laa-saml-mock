@@ -70,6 +70,10 @@ cd laa-saml-mock
 mvn clean install
 ```
 
+> Make sure your maven points to the correct java version. You can check this by running `mvn -v`
+
+> If you are using the java version manager `jenv` then you may need to run `jenv enable-plugin maven`
+
 #### Custom Spring Boot application.yml
 You can specify a custom spring boot configuration file to inject values in to the application
 ```
