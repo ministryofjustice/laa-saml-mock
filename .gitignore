@@ -8,3 +8,6 @@ target/
 .settings
 application.t03.yml
 .DS_Store
+.gradle
+**/build/**
+.dccache
