@@ -1,0 +1,52 @@
+allprojects  {
+  group = 'uk.gov.justice.legalaid'
+  version = '1.0.0'
+}
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'jacoco'
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+  tasks.withType(JavaCompile) {
+  	options.encoding = 'UTF-8'
+  }
+
+  
+  repositories {
+    mavenLocal()
+    
+    maven { url "https://repo.maven.apache.org/maven2" }
+  }
+
+  configurations.all {
+  }
+
+  test {
+    jacoco {
+      append = false
+    }
+  }
+
+  jacocoTestReport {
+    group = 'Reporting'
+    reports {
+      xml.enabled true
+      csv.enabled true
+      html.destination file("${buildDir}/jacocoHtml")
+    }
+    executionData(test)
+  }
+
+  jacocoTestCoverageVerification {
+    violationRules {
+      rule {
+        limit {
+          minimum = 0.6
+        }
+      }
+    }
+  }
+  
+  check.dependsOn jacocoTestCoverageVerification
+}

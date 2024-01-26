@@ -1,0 +1,21 @@
+jar {
+    baseName 'mujina-common'
+}
+
+dependencies {
+    compile group: 'org.projectlombok', name: 'lombok', version:'1.16.18'
+    compile group: 'commons-io', name: 'commons-io', version:'2.7'
+    compile group: 'org.opensaml', name: 'openws', version:'1.5.4'
+    compile group: 'org.springframework.security.extensions', name: 'spring-security-saml2-core', version:'1.0.2.RELEASE'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version:'2.10.2'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'1.5.9.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '4.3.16.RELEASE'
+}
+
+task copyJar(type: Copy) {
+    from jar
+    into 'target'
+}
+
+build.dependsOn copyJar

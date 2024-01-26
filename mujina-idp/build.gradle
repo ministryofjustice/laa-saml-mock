@@ -1,0 +1,30 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.9.RELEASE'
+}
+
+jar {
+    baseName 'laa-saml-mock-idp'
+}
+
+dependencies {
+  compile project(':mujina-common')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'1.5.9.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.5.9.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:'1.5.9.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version:'1.5.9.RELEASE'
+    compile(group: 'org.apache.httpcomponents', name: 'httpclient', version:'4.5.3') {
+        exclude(module: 'commons-logging')
+    }
+    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.5'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.5.9.RELEASE') {
+        exclude(module: 'commons-logging')
+    }
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version:'3.0.2'
+}
+
+task copyJar(type: Copy) {
+    from jar
+    into 'target'
+}
+
+build.dependsOn copyJar

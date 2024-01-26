@@ -1,0 +1,8 @@
+rootProject.name = 'mujina'
+include ':mujina-common'
+include ':mujina-sp'
+include ':mujina-idp'
+
+project(':mujina-common').projectDir = "$rootDir/mujina-common" as File
+project(':mujina-sp').projectDir = "$rootDir/mujina-sp" as File
+project(':mujina-idp').projectDir = "$rootDir/mujina-idp" as File
